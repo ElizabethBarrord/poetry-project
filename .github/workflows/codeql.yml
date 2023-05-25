@@ -17,9 +17,9 @@ on:
     - main
   workflow_dispatch:
     
-# env:
-#   JF_URL: ${{ secrets.JF_URL }}
-#   JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+env:
+  JF_URL: ${{ secrets.JF_URL }}
+  JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
 jobs:
   analyze:
@@ -57,20 +57,20 @@ jobs:
         jf poetry-config --repo-resolve=${{ secrets.JF_REPO_URL }}
         jf poetry install --build-name=my-poetry-build --build-number=1 --module=jfrog-poetry-example
 
-#     # Initializes the CodeQL tools for scanning.
-#     - name: Initialize CodeQL
-#       uses: github/codeql-action/init@v2
-#       with:
-#         languages: ${{ matrix.language }}
-#         queries: security-extended
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended
 
 
-#     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
-#     # If this step fails, then you should remove it and run the build manually (see below)
-#     - name: Autobuild
-#       uses: github/codeql-action/autobuild@v2
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
+    # If this step fails, then you should remove it and run the build manually (see below)
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
-#     - name: Perform CodeQL Analysis
-#       uses: github/codeql-action/analyze@v2
-#       with:
-#         category: "/language:${{matrix.language}}"
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
