@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "my-poetry-project"
+version = "0.1.0"
+description = ""
+authors = ["ElizabethBarrord <elizabethbarrord@github.com>"]
+readme = "README.md"
+packages = [{include = "my_poetry_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pendulum = "^2.0.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
