@@ -47,7 +47,7 @@ jobs:
       run: curl -sSL https://install.python-poetry.org | python3 -
 
     - name: Install poetry configs
-      run: jf poetry install --no-interaction --no-ansi
+      run: jf poetry install ./ --build-name my-build --build-number 1
 
 #     # Initializes the CodeQL tools for scanning.
 #     - name: Initialize CodeQL
