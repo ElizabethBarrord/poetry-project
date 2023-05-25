@@ -34,6 +34,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      
+    - name: Install poetry
+      run: curl -sSL https://install.python-poetry.org | python3 -
+      
     - uses: jfrog/setup-jfrog-cli@v3
       env:
         # JFrog platform url (for example: https://acme.jfrog.io) 
@@ -42,9 +46,7 @@ jobs:
         JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
     - run: |
         jf rt ping
-
-    - name: Install poetry
-      run: curl -sSL https://install.python-poetry.org | python3 -
+        jf c use setup-jfrog-cli-server
 
     - name: Install poetry configs
       run: |
