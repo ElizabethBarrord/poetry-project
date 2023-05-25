@@ -37,10 +37,6 @@ jobs:
       
     - name: Install poetry
       run: curl -sSL https://install.python-poetry.org | python3 -
-    
-    # Since I don't have all deps in artifactory
-    - name: add poetry source
-      run: poetry source add pypi
       
     - uses: jfrog/setup-jfrog-cli@v3
       env:
