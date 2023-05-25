@@ -48,8 +48,8 @@ jobs:
 
     - name: Install poetry configs
       run: |
-        jf poetry-config --global
-        jf poetry install .
+        jf poetry-config --repo-resolve=pypi/
+        jf poetry install --build-name=my-poetry-build --build-number=1 --module=jfrog-poetry-example
 
 #     # Initializes the CodeQL tools for scanning.
 #     - name: Initialize CodeQL
