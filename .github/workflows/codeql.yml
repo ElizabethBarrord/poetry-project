@@ -54,7 +54,7 @@ jobs:
 
     - name: Install poetry configs
       run: |
-        jf poetry-config --repo-resolve=${{ secrets.JF_REPO_URL }} --url=${{ secrets.JF_URL }} --access-token=${{ secrets.JF_ACCESS_TOKEN }}
+        jf poetry-config --repo-resolve=${{ secrets.JF_REPO_URL }} --access-token=${{ secrets.JF_ACCESS_TOKEN }}
         jf poetry install --build-name=my-poetry-build --build-number=1 --module=jfrog-poetry-example
 
 #     # Initializes the CodeQL tools for scanning.
